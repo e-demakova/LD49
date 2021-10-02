@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da6f74095da3a24d91e972b3f41e10e, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  JumpForce: 1.5
-  MoveSpeed: 0.75
+  JumpForce: 1.4
+  MoveSpeed: 0.5
   JumpFromWallDuration: 0.15
   MaxFallSpeed: 3

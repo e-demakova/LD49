@@ -15,4 +15,4 @@ MonoBehaviour:
   LoadSettedScenes: 1
   PersistentGameStartScenes:
   - {fileID: 11400000, guid: b6714fc267abc5b48ac5db9f0ea6203d, type: 2}
-  FirstScene: {fileID: 11400000, guid: 01fc3292b4fea974ba65b86e9341534f, type: 2}
+  FirstScene: {fileID: 11400000, guid: 256b33f9c13dab14bbac83b81700ec6d, type: 2}

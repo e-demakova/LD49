@@ -1,3 +1,4 @@
+using System;
 using Deblue.SceneManagement;
 using Deblue.Stats;
 using JetBrains.Annotations;
@@ -19,18 +20,30 @@ namespace LD49.Stats
             _heroStats = heroStats;
             _worldStats = worldStats;
 
-            sceneLoader.SceneLoaded.Subscribe(DecreaseStable);
+            sceneLoader.SceneLoaded.Subscribe(ChangeStable);
         }
 
-        private void DecreaseStable(SceneLoaded context)
+        private void ChangeStable(SceneLoaded context)
         {
-            if (context.NewScene.Type == SceneType.Level)
-                DecreaseStable();
+            switch (context.NewScene.Type)
+            {
+                case SceneType.Level:
+                    _worldStats.ChangeAmount(WorldStatId.Stable, -StableDelta);
+                    break;
+                case SceneType.Shop:
+                    RefreshStats();
+                    break;
+                case SceneType.UI:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
-        private void DecreaseStable()
+        private void RefreshStats()
         {
-            _worldStats.ChangeAmount(WorldStatId.Stable, -StableDelta);
+            _worldStats.ChangePercent(WorldStatId.Stable, 1f);
+            _heroStats.ChangePercent(HeroStatId.Hp, 1f);
         }
 
         public void ChangeStat(WorldStatId id, float newValue)

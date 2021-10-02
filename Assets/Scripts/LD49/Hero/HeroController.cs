@@ -6,6 +6,7 @@ using Deblue.ColliderFinders;
 using Deblue.Extensions;
 using Deblue.InteractiveObjects;
 using Deblue.ObservingSystem;
+using Deblue.SceneManagement;
 using Deblue.Stats;
 using LD49.Stats;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace LD49.Hero
     [RequireComponent(typeof(HeroInstaller))]
     public class HeroController : MonoBehaviour, IDmgReceiver, IItemTaker
     {
+        [SerializeField] private SceneChanger _sceneChanger;
+
         private LimitedStatsStorage<HeroStatId> _stats;
 
         private HeroView _view;
@@ -42,6 +45,8 @@ namespace LD49.Hero
         public void Construct(LimitedStatsStorage<HeroStatId> stats)
         {
             _stats = stats;
+            var hp = stats.GetStatProperty(HeroStatId.Hp);
+            hp.ReachedLowerLimit.Subscribe(Die, _observers);
         }
 
         public void Init(HeroBindings bind)
@@ -58,7 +63,6 @@ namespace LD49.Hero
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
-
 
         private void OnDisable()
         {
@@ -78,9 +82,9 @@ namespace LD49.Hero
             _floorChecker?.DrawGizmos();
             _wallsChecker?.DrawGizmos();
         }
+
 #endif
-
-
+        
         public void SubscribeMovementOnInput(Action<Action<Vector2Int>> subscription)
         {
             subscription.Invoke(SetInputDirection);
@@ -99,7 +103,7 @@ namespace LD49.Hero
             {
                 if (NearInteractionItem == null)
                     return;
-                
+
                 if (NearInteractionItem.CanHighlight)
                     NearInteractionItem.Interact();
             }
@@ -111,7 +115,9 @@ namespace LD49.Hero
                 return;
 
             _view.ApplyDmg();
+            _stats.ChangeAmount(HeroStatId.Hp, -dmg.Value);
 
+            _invincibleCoroutine?.Do(StopCoroutine);
             _invincibleCoroutine = StartCoroutine(Invincible());
         }
 
@@ -232,6 +238,13 @@ namespace LD49.Hero
 
             _model.IsInvincible = false;
             _invincibleCoroutine = null;
+        }
+
+        private void Die(PropertyReachedLowerLimit context)
+        {
+            StopAllCoroutines();
+            _model.IsInvincible = true;
+            _sceneChanger.LoadScene();
         }
     }
 }
