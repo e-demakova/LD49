@@ -3,13 +3,12 @@ using UnityEngine.UI;
 
 namespace LD49.UI
 {
-    [RequireComponent(typeof(Image))]
     public class StatPoint : MonoBehaviour
     {
-        [SerializeField] private Color _fillColor;
-        [SerializeField] private Color _emptyColor;
+        [SerializeField] private Sprite _fillSprite;
+        [SerializeField] private Sprite _emptySprite;
+        [SerializeField] private Image _renderer;
 
-        private Image _renderer;
         private bool _isFill;
         
         public bool IsFill
@@ -18,13 +17,8 @@ namespace LD49.UI
             set
             {
                 _isFill = value;
-                _renderer.color = value ? _fillColor : _emptyColor;
+                _renderer.sprite = value ? _fillSprite : _emptySprite;
             }
         } 
-        
-        private void Awake()
-        {
-            _renderer = GetComponent<Image>();
-        }
     }
 }

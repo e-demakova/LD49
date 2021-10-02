@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _newValue: 0
+  _cost: 0
   _sprites:
     Standard: {fileID: 21300000, guid: 9609912b03d0c41499f369976ad899be, type: 3}
     Highlight: {fileID: 21300000, guid: 2f53cd9b7ebdb07499617ffc3fa4ac5f, type: 3}
@@ -144,7 +145,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6279092213156502746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _newValue: 0
+  _cost: 0
   _sprites:
     Standard: {fileID: 21300000, guid: 9609912b03d0c41499f369976ad899be, type: 3}
     Highlight: {fileID: 21300000, guid: 2f53cd9b7ebdb07499617ffc3fa4ac5f, type: 3}
@@ -429,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _newValue: 0
+  _cost: 0
   _sprites:
     Standard: {fileID: 21300000, guid: 9609912b03d0c41499f369976ad899be, type: 3}
     Highlight: {fileID: 21300000, guid: 2f53cd9b7ebdb07499617ffc3fa4ac5f, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpForce: 1.4
   MoveSpeed: 0.5
-  JumpFromWallDuration: 0.15
+  JumpFromWallDuration: 0.07
   MaxFallSpeed: 3
