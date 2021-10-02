@@ -22,9 +22,9 @@ namespace LD49.Enviroment
                 return;
             
             if (Random.value > _stats.Stable) 
-                ActivateTrap();
+                ActivateTrap(hero);
         }
 
-        protected abstract void ActivateTrap();
+        protected abstract void ActivateTrap(HeroController hero);
     }
 }

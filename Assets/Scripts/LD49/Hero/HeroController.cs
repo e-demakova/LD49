@@ -115,6 +115,12 @@ namespace LD49.Hero
             _invincibleCoroutine = StartCoroutine(Invincible());
         }
 
+        public void Teleport(Vector2 position)
+        {
+            _view.Teleport();
+            transform.position = position;
+        }
+
         private void CheckGround()
         {
             _model.IsGrounded = _floorChecker.IsColliderFound;

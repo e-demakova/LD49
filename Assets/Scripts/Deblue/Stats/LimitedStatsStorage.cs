@@ -18,6 +18,11 @@ namespace Deblue.Stats
             return _statPercents[id];
         }
 
+        public float GetUpperLimit(TEnum id)
+        {
+            return GetStat(id).UpperLimit;
+        }
+
         public override void ChangeAmount(TEnum id, float delta)
         {
             var stat = GetStat(id);

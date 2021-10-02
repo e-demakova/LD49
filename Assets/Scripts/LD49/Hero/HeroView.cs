@@ -16,7 +16,8 @@ namespace LD49
         private readonly int _horizontalInput = Animator.StringToHash("HorizontalInput");
         
         private readonly int _dmgTrigger = Animator.StringToHash("ApplyDmg");
-        
+        private readonly int _glitchTrigger = Animator.StringToHash("Glitch");
+
         public Quaternion Tern(float direction)
         {
             return _hero.transform.Tern(direction);
@@ -54,6 +55,11 @@ namespace LD49
         public void ApplyDmg()
         {
             _hero.SetTrigger(_dmgTrigger);
+        }
+
+        public void Teleport()
+        {
+            _hero.SetTrigger(_glitchTrigger);
         }
     }
 }

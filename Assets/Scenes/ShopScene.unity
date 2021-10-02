@@ -12244,12 +12244,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 529147632503579940, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
+      propertyPath: _cost
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 529147632503579940, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
       propertyPath: _newValue
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
       propertyPath: _id
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
+      propertyPath: _cost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
       propertyPath: _newValue
@@ -12710,6 +12718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 4587504421758003389, guid: 5e842cbcfd15331449e52f2171e88efa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4587504421758003391, guid: 5e842cbcfd15331449e52f2171e88efa, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -12768,11 +12780,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 529147632503579940, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
+      propertyPath: _cost
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 529147632503579940, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
       propertyPath: _newValue
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
       propertyPath: _id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}
+      propertyPath: _cost
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2116768435123811376, guid: ac341cfae8ce69e4a9af6388ff96a4f9, type: 3}

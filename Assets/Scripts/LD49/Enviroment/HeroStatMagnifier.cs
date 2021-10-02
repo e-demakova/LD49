@@ -21,7 +21,16 @@ namespace LD49.Enviroment
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent<HeroController>(out var hero))
+                IncreaseStat();
+        }
+
+        private void IncreaseStat()
+        {
+            if (_stats.GetStatValue(_id) < _stats.GetUpperLimit(_id))
+            {
                 _stats.ChangeAmount(_id, 1);
+                Destroy(gameObject);
+            }
         }
     }
 }

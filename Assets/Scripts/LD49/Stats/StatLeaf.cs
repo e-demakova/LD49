@@ -7,8 +7,11 @@ namespace LD49.Stats
     [RequireComponent(typeof(SpriteRenderer))]
     public class StatLeaf : MonoBehaviour
     {
+        public int Cost => _cost;
+        
         [SerializeField] private WorldStatId _id;
         [SerializeField] private float _newValue;
+        [SerializeField] private int _cost;
         [SerializeField] private InteractionItem.SpritePair _sprites;
         [SerializeField] private Sprite _activateSprite;
 

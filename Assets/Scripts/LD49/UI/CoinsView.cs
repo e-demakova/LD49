@@ -1,3 +1,4 @@
+using System;
 using Deblue.ObservingSystem;
 using Deblue.Stats.View;
 using LD49.Stats;
@@ -12,7 +13,7 @@ namespace LD49.UI
 
         public override void UpdateView(LimitedPropertyChanged<float> context)
         {
-            _coinsCount.text = ((int) context.NewValue).ToString();
+            _coinsCount.text = Math.Round(context.NewValue).ToString();
         }
 
         protected override void Init()
