@@ -3,24 +3,9 @@ using UnityEngine;
 
 namespace Deblue.InteractiveObjects
 {
-    public enum InteractExecutionOrder
-    {
-        First,
-        Second,
-        Third
-    }
-    public interface IInteractItem
-    {
-        InteractExecutionOrder Order { get; }
-        bool CanHighlight(IItemTaker taker);
-        void Interact(IItemTaker taker);
-        void Highlight();
-        void StopHighlight();
-    }
-
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(SpriteRenderer))]
-    public abstract class InteractItem : MonoBehaviour, IInteractItem
+    public abstract class InteractionItem : MonoBehaviour
     {
         [System.Serializable]
         public struct SpritePair
@@ -31,17 +16,10 @@ namespace Deblue.InteractiveObjects
 
         [SerializeField] protected string _id;
 
-        protected readonly Handler<InteractObjectUpdated> _updated = new Handler<InteractObjectUpdated>();
-        protected bool _isTaken;
-
-        protected SpriteRenderer Renderer { get; private set; }
-        public IReadOnlyHandler<InteractObjectUpdated> Updated => _updated;
-
-        public abstract InteractExecutionOrder Order { get; }
+        public abstract bool CanHighlight { get; }
 
         protected void Awake()
         {
-            Renderer = GetComponent<SpriteRenderer>();
             MyAwake();
         }
 
@@ -51,22 +29,23 @@ namespace Deblue.InteractiveObjects
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.TryGetComponent<IItemTaker>(out var taker))
-                return;
-
-            _updated.Raise(new InteractObjectUpdated(this));
+            if (other.TryGetComponent<IItemTaker>(out var taker))
+            {
+                taker.NearInteractionItem = this;
+                Highlight();
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!other.TryGetComponent<IItemTaker>(out var taker))
-                return;
-
-            _updated.Raise(new InteractObjectUpdated(this));
+            if (other.TryGetComponent<IItemTaker>(out var taker))
+            {
+                taker.NearInteractionItem = null;
+                StopHighlight();
+            }
         }
 
-        public abstract bool CanHighlight(IItemTaker taker);
-        public abstract void Interact(IItemTaker taker);
+        public abstract void Interact();
         public abstract void Highlight();
         public abstract void StopHighlight();
     }

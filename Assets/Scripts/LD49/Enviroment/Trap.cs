@@ -1,3 +1,4 @@
+using LD49.Hero;
 using LD49.Stats;
 using UnityEngine;
 using Zenject;

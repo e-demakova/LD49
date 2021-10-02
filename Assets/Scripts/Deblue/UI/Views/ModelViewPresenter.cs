@@ -1,6 +1,7 @@
 using System;
 using Deblue.Models;
 using UnityEngine;
+using Zenject;
 
 namespace Deblue.UI.Views
 {
@@ -32,7 +33,7 @@ namespace Deblue.UI.Views
         public abstract void Dispose();
     }
 
-    public abstract class ModelViewPresenter<T> : ModelView, IModelView where T : IModel
+    public abstract class ModelViewPresenter<T> : ModelView where T : IModel
     {
         protected T Model;
         public override Type ModelType => typeof(T);

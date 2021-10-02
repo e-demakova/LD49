@@ -1,28 +1,49 @@
+using Deblue.SceneManagement;
+using Deblue.Stats;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace LD49.Stats
 {
     public class WorldStats
     {
-        public float Stable { get; private set; } = 1f;
-        public float StableDelta { get; private set; } = 0.3f;
+        private readonly LimitedStatsStorage<HeroStatId> _heroStats;
+        private readonly LimitedStatsStorage<WorldStatId> _worldStats;
+        
         public float MaxHp { get; private set; }
+        private float StableDelta { get; set; } = 0.3f;
+        public float Stable => _worldStats.GetStatValue(WorldStatId.Stable);
 
-        public void DecreaseStable()
+        public WorldStats(LimitedStatsStorage<HeroStatId> heroStats, LimitedStatsStorage<WorldStatId> worldStats, SceneLoader sceneLoader)
         {
-            Stable -= StableDelta;
+            _heroStats = heroStats;
+            _worldStats = worldStats;
+
+            sceneLoader.SceneLoaded.Subscribe(DecreaseStable);
         }
 
-        public void ChangeStat(StatsIds id, float newValue)
+        private void DecreaseStable(SceneLoaded context)
+        {
+            if (context.NewScene.Type == SceneType.Level)
+                DecreaseStable();
+        }
+
+        private void DecreaseStable()
+        {
+            _worldStats.ChangeAmount(WorldStatId.Stable, -StableDelta);
+        }
+
+        public void ChangeStat(WorldStatId id, float newValue)
         {
             switch (id)
             {
-                case StatsIds.StableDelta:
+                case WorldStatId.StableDelta:
                     StableDelta = newValue;
                     break;
 
-                case StatsIds.MaxHp:
+                case WorldStatId.MaxHp:
                     MaxHp = newValue;
+                    _heroStats.SetUpperLimit(HeroStatId.Hp, newValue);
                     break;
 
                 default:

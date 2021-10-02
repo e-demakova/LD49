@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using Deblue.Battle;
 using Deblue.ColliderFinders;
 using Deblue.Extensions;
+using Deblue.InteractiveObjects;
 using Deblue.ObservingSystem;
-using Deblue.Story.Characters;
+using Deblue.Stats;
+using LD49.Stats;
 using UnityEngine;
+using Zenject;
 
-namespace LD49
+namespace LD49.Hero
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(HeroInstaller))]
-    public class HeroController : MonoBehaviour, IDmgReceiver, IDialogStarter
+    public class HeroController : MonoBehaviour, IDmgReceiver, IItemTaker
     {
+        private LimitedStatsStorage<HeroStatId> _stats;
+
         private HeroView _view;
         private HeroModel _model;
 
@@ -30,6 +35,14 @@ namespace LD49
         public AttackerType AttackerType => HeroModel.AttackerType;
 
         public bool IsInvincible => false;
+
+        public InteractionItem NearInteractionItem { get; set; }
+
+        [Inject]
+        public void Construct(LimitedStatsStorage<HeroStatId> stats)
+        {
+            _stats = stats;
+        }
 
         public void Init(HeroBindings bind)
         {
@@ -67,6 +80,7 @@ namespace LD49
         }
 #endif
 
+
         public void SubscribeMovementOnInput(Action<Action<Vector2Int>> subscription)
         {
             subscription.Invoke(SetInputDirection);
@@ -75,6 +89,20 @@ namespace LD49
         public void SubscribeJumpOnInput(Action<Action> subscription)
         {
             subscription.Invoke(Jump);
+        }
+
+        public void SubscribeInteractionOnInput(Action<Action> subscription)
+        {
+            subscription.Invoke(Interact);
+
+            void Interact()
+            {
+                if (NearInteractionItem == null)
+                    return;
+                
+                if (NearInteractionItem.CanHighlight)
+                    NearInteractionItem.Interact();
+            }
         }
 
         public void ApplyDamage(Damage dmg)

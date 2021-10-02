@@ -1,12 +1,18 @@
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.Serialization;
 
 namespace Deblue.SceneManagement
 {
+    public enum SceneType
+    {
+        UI,
+        Shop,
+        Level
+    }
+    
     [CreateAssetMenu(fileName = "Scene", menuName = "Scenes/Scene")]
     public class SceneSO : ScriptableObject
     {
-        [FormerlySerializedAs("Reference")] public AssetReference AssetRef;
+        public string Name;
+        public SceneType Type;
     }
 }

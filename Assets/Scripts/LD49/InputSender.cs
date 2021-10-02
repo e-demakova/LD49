@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Deblue.Input;
 using Deblue.ObservingSystem;
+using Deblue.SceneManagement;
+using LD49.Hero;
 using UnityEngine;
 
 namespace LD49
@@ -15,10 +18,13 @@ namespace LD49
         private readonly List<IObserver> _heroControlObservers = new List<IObserver>(2);
         private readonly List<IObserver> _observers = new List<IObserver>(10);
 
-        public InputSender(InputReceiver inputReceiver, HeroController hero)
+        public InputSender(InputReceiver inputReceiver, HeroController hero, SceneLoader sceneLoader)
         {
             InputReceiver = inputReceiver;
             _hero = hero;
+
+            sceneLoader.SceneLoadingStarted.Subscribe(x => DisableAllInput(), _observers);
+            sceneLoader.SceneLoaded.Subscribe(x => SubscribeHeroControl(), _observers);
         }
 
         public override void Initialize()
@@ -40,6 +46,7 @@ namespace LD49
         private void SubscribeHeroControl()
         {
             _hero.SubscribeJumpOnInput(action => SubscribeOnButtonDown(action, _jumpCode, _heroControlObservers));
+            _hero.SubscribeInteractionOnInput(action => SubscribeOnButtonDown(action, _interactCode, _heroControlObservers));
             _hero.SubscribeMovementOnInput(action => SubscribeInputDirection(action, _heroControlObservers));
         }
     }

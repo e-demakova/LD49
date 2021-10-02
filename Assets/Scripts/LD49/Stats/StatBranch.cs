@@ -3,34 +3,34 @@ using UnityEngine;
 
 namespace LD49.Stats
 {
-    public class StatBranch : ReactionItem
+    public class StatBranch : InteractionItem
     {
-        [SerializeField] private StatLief[] _liefs;
+        [SerializeField] private StatLeaf[] _leafs;
         private int _liefsActivated;
 
-        private StatLief AvailableLief => _liefs[_liefsActivated];
-        
-        protected override void React(IItemTaker taker)
+        private StatLeaf AvailableLeaf => _leafs[_liefsActivated];
+
+        public override void Interact()
         {
-            AvailableLief.Activate();
+            AvailableLeaf.Activate();
             StopHighlight();
             _liefsActivated++;
             Highlight();
         }
 
-        public override bool CanHighlight(IItemTaker taker)
-        {
-            return _liefsActivated < _liefs.Length;
-        }
+        public override bool CanHighlight => _liefsActivated < _leafs.Length;
         
+
         public override void Highlight()
         {
-            AvailableLief.Highlight();
+            if (CanHighlight)
+                AvailableLeaf.Highlight();
         }
 
         public override void StopHighlight()
         {
-            AvailableLief.StopHighlight();
+            if (CanHighlight)
+                AvailableLeaf.StopHighlight();
         }
     }
 }

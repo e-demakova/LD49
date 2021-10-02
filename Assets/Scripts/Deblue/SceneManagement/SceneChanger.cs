@@ -5,7 +5,7 @@ namespace Deblue.SceneManagement
 {
     public class SceneChanger : MonoBehaviour
     {
-        [SerializeField] private SceneSO _startScene;
+        [SerializeField] private SceneSO _nextScene;
 
         private SceneLoader _loader;
 
@@ -17,7 +17,7 @@ namespace Deblue.SceneManagement
 
         public void LoadScene()
         {
-            _loader.LoadNextScene(_startScene);
+            _loader.LoadNextScene(_nextScene);
         }
     }
 }

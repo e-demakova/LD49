@@ -30,9 +30,8 @@ namespace Deblue.Stats.View
         private void InitStatView(TEnum id)
         {
             if (_statsViews.ContainsKey(id))
-            {
                 return;
-            }
+            
             for (int i = 0; i < _views.Length; i++)
             {
                 if (_views[i].StatId.Equals(id))
@@ -56,7 +55,6 @@ namespace Deblue.Stats.View
                 return;
             
             view.Dispose();
-            Destroy(view.gameObject);
         }
 
         public override void Hide()

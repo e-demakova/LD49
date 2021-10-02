@@ -1,3 +1,5 @@
+using Deblue.InteractiveObjects;
+using LD49.Hero;
 using UnityEngine;
 using Zenject;
 

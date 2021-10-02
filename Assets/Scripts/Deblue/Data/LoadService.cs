@@ -1,10 +1,6 @@
-using System;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
 namespace Deblue.Data
@@ -12,37 +8,7 @@ namespace Deblue.Data
     public class LoadService
     {
         private static Encoding DefaultEncoding => Encoding.GetEncoding(1251);
-
-        public void LoadAddressableMono<T>(Action<T> action, AssetReference reference) where T : MonoBehaviour
-        {
-            var task = LoadAddressableMonoAsync(action, reference);
-        }
-
-        private async Task LoadAddressableMonoAsync<T>(Action<T> action, AssetReference reference) where T : MonoBehaviour
-        {
-            var operation = Addressables.LoadAssetAsync<GameObject>(reference);
-            await operation.Task;
-
-            if (!operation.Result.TryGetComponent<T>(out var component))
-                Debug.LogError($"Component of type {typeof(T).Name} not found on referenced asset {reference.Asset.name}");
-
-            action.Invoke(component);
-        }
-
-        public void LoadAddressableJSON<T>(Action<T> action, AssetReference reference)
-        {
-            var task = LoadAddressableJSONAsync(action, reference);
-        }
-
-        private async Task LoadAddressableJSONAsync<T>(Action<T> action, AssetReference reference)
-        {
-            var operation = Addressables.LoadAssetAsync<TextAsset>(reference);
-            await operation.Task;
-
-            var result = JsonUtility.FromJson<T>(operation.Result.text);
-            action.Invoke(result);
-        }
-
+        
         public string LoadStreamingAsset(string fileName)
         {
             CheckIsEmpty(fileName);

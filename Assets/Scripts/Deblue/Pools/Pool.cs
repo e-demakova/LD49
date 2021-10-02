@@ -2,7 +2,6 @@
 using Deblue.Data;
 using Deblue.ObservingSystem;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Deblue.Pools
 {
@@ -20,12 +19,6 @@ namespace Deblue.Pools
         {
             _prefab = prefab;
         }
-
-        public Pool(AssetReference assetRef, LoadService loader, int count = 0, Transform parent = null) : this(parent)
-        {
-            _loader = loader;
-            loader.LoadAddressableMono<T>(result => _prefab = result, assetRef);
-        }
         
         public Pool(LoadService loader)
         {
@@ -35,11 +28,6 @@ namespace Deblue.Pools
         private Pool(Transform parent)
         {
             _parent = parent;
-        }
-
-        public void LoadPrefab(AssetReference assetRef)
-        {
-            _loader.LoadAddressableMono<T>(result => _prefab = result, assetRef);
         }
         
         public T GetItem()
