@@ -71,22 +71,22 @@ namespace LD49
         {
             subscription.Invoke(SetInputDirection);
         }
-        
+
         public void SubscribeJumpOnInput(Action<Action> subscription)
         {
             subscription.Invoke(Jump);
         }
-        
+
         public void ApplyDamage(Damage dmg)
         {
             if (_model.IsInvincible)
                 return;
 
-                _view.ApplyDmg();
+            _view.ApplyDmg();
 
             _invincibleCoroutine = StartCoroutine(Invincible());
         }
-        
+
         private void CheckGround()
         {
             _model.IsGrounded = _floorChecker.IsColliderFound;
@@ -100,7 +100,7 @@ namespace LD49
             _model.Position = _rigidbody.position;
             _model.Velocity = _rigidbody.velocity;
             MoveHorizontal(_model.IsMoveLock ? 0 : _model.InputDirection.x);
-            LimitFallSpeed(_model.IsLeaningOnWall ? 0.7f : 6f);
+            LimitFallSpeed(_model.MaxFallSpeed);
         }
 
         private void LimitFallSpeed(float value)
@@ -115,6 +115,7 @@ namespace LD49
             _view.InputDirection = _model.InputDirection;
             _view.IsMoveHorizontally = _model.HorizontalMoveDirection != 0;
             _view.IsLeaningOnWall = _model.IsLeaningOnWall;
+            _view.Tern(_model.InputDirection.x);
         }
 
         private void Jump()
@@ -183,7 +184,7 @@ namespace LD49
             _rigidbody.MoveHorizontal(direction, speed);
             _model.HorizontalMoveDirection = direction;
         }
-        
+
         private void ResetJumps(PlayerOnTheGround context)
         {
             _model.JumpsMade = 0;

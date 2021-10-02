@@ -1,6 +1,7 @@
 using Deblue.ColliderFinders;
 using DSlacker.ColliderFinders;
 using LD49.Enviroment;
+using LD49.Stats;
 using UnityEngine;
 using Zenject;
 
@@ -43,7 +44,7 @@ namespace LD49
         
         private IGroundChecker CreateFloorChecker(Collider2D collider)
         {
-            return new RayGroundChecker(collider.transform, Vector2.down, collider.bounds.extents.y + 0.08f);
+            return new RayGroundChecker(collider.transform, Vector2.down, collider.bounds.extents.y + 0.02f);
         }
 
         private IGroundChecker CreateWallsChecker(Collider2D collider)

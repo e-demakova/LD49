@@ -16,8 +16,8 @@ namespace DSlacker.ColliderFinders
         {
             var bounds = collider.bounds;
             var transform = collider.transform;
-            _leftSide = new RayGroundChecker(transform, Vector2.left, bounds.extents.x + 0.07f);
-            _rightSide = new RayGroundChecker(transform, Vector2.right, bounds.extents.x + 0.07f);
+            _leftSide = new RayGroundChecker(transform, Vector2.left, bounds.extents.x + 0.04f);
+            _rightSide = new RayGroundChecker(transform, Vector2.right, bounds.extents.x + 0.04f);
         }
 
         private bool CheckIsGrounded(IGroundChecker checker)

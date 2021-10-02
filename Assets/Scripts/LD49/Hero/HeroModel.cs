@@ -16,6 +16,7 @@ namespace LD49
         public float JumpForce;
         public float JumpFromWallDuration;
         public float MoveSpeed;
+        public float MaxFallSpeed;
         public float MaxHp;
         public float Hp;
         public int MaxJumps = 1;
@@ -68,6 +69,7 @@ namespace LD49
 
         public HeroModel(HeroConfigSO config)
         {
+            MaxFallSpeed = config.MaxFallSpeed;
             JumpFromWallDuration = config.JumpFromWallDuration;
             MoveSpeed = config.MoveSpeed;
             JumpForce = config.JumpForce;

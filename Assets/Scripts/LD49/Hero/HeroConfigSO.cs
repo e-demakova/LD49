@@ -8,5 +8,6 @@ namespace LD49
         public float JumpForce;
         public float MoveSpeed;
         public float JumpFromWallDuration = 0.15f;
+        public float MaxFallSpeed;
     }
 }

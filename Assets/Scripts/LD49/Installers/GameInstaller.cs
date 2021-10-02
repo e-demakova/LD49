@@ -5,6 +5,7 @@ using Deblue.SceneManagement;
 using Deblue.Story.DialogSystem;
 using Deblue.Story.Steps;
 using LD49.Enviroment;
+using LD49.Stats;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;

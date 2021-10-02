@@ -1,14 +1,13 @@
-using LD49.Stats;
 using UnityEngine;
 
-namespace LD49.Enviroment
+namespace LD49.Stats
 {
     public class WorldStats
     {
         public float Stable { get; private set; } = 1f;
         public float StableDelta { get; private set; } = 0.3f;
         public float MaxHp { get; private set; }
-        
+
         public void DecreaseStable()
         {
             Stable -= StableDelta;
@@ -25,7 +24,7 @@ namespace LD49.Enviroment
                 case StatsIds.MaxHp:
                     MaxHp = newValue;
                     break;
-                
+
                 default:
                     Debug.LogWarning($"Stat id {id} didn't define.");
                     break;
