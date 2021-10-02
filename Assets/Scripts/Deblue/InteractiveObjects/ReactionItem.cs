@@ -1,6 +1,8 @@
-﻿namespace Deblue.InteractiveObjects
+﻿using UnityEngine;
+
+namespace Deblue.InteractiveObjects
 {
-    public abstract class ReactionItem : IInteractItem
+    public abstract class ReactionItem : MonoBehaviour, IInteractItem
     {
         public InteractExecutionOrder Order { get; } = InteractExecutionOrder.Second;
 

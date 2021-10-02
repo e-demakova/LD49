@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da6f74095da3a24d91e972b3f41e10e, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  JumpForce: 1
+  JumpForce: 2
   MoveSpeed: 1
   JumpFromWallDuration: 0.15

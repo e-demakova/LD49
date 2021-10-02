@@ -1,20 +1,35 @@
+using LD49.Stats;
+using UnityEngine;
+
 namespace LD49.Enviroment
 {
     public class WorldStats
     {
-        private float _stable;
-     
-        public float Stable => _stable;
-        public float StableDelta { get; set; } = 0.3f;
-
-        public WorldStats(float stable)
-        {
-            _stable = stable;
-        }
-
+        public float Stable { get; private set; } = 1f;
+        public float StableDelta { get; private set; } = 0.3f;
+        public float MaxHp { get; private set; }
+        
         public void DecreaseStable()
         {
-            _stable -= StableDelta;
+            Stable -= StableDelta;
+        }
+
+        public void ChangeStat(StatsIds id, float newValue)
+        {
+            switch (id)
+            {
+                case StatsIds.StableDelta:
+                    StableDelta = newValue;
+                    break;
+
+                case StatsIds.MaxHp:
+                    MaxHp = newValue;
+                    break;
+                
+                default:
+                    Debug.LogWarning($"Stat id {id} didn't define.");
+                    break;
+            }
         }
     }
 }

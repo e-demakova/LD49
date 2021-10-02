@@ -16,6 +16,8 @@ namespace LD49
         public float JumpForce;
         public float JumpFromWallDuration;
         public float MoveSpeed;
+        public float MaxHp;
+        public float Hp;
         public int MaxJumps = 1;
         public int JumpsMade;
         public int HorizontalMoveDirection;

@@ -23,7 +23,7 @@ namespace Deblue.InteractiveObjects
     public abstract class InteractItem : MonoBehaviour, IInteractItem
     {
         [System.Serializable]
-        protected struct SpritePair
+        public struct SpritePair
         {
             public Sprite Standard;
             public Sprite Highlight;
