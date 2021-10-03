@@ -37,7 +37,7 @@ namespace LD49.Installers
             heroStats.AddStat(HeroStatId.Money);
 
             var worldStats = new LimitedStatsStorage<WorldStatId>();
-            worldStats.AddStat(WorldStatId.Stable, 1f, 0f, 1f);
+            worldStats.AddStat(WorldStatId.Stable, 1f, 0f, 0.9f);
             worldStats.AddStat(WorldStatId.Score, 1f, 0f, 1f);
             worldStats.AddStat(WorldStatId.Record, 1f, 0f, 1f);
 

@@ -12,7 +12,7 @@ namespace LD49.Stats
         private readonly LimitedStatsStorage<WorldStatId> _worldStats;
 
         public float MaxHp { get; private set; }
-        private float StableDelta { get; set; } = 0.3f;
+        private float StableDelta { get; set; } = 0.4f;
         public float Stable => _worldStats.GetStatValue(WorldStatId.Stable);
 
         private int _maxHpLeafs;
@@ -87,7 +87,7 @@ namespace LD49.Stats
 
         private void RefreshStats()
         {
-            _worldStats.ChangePercent(WorldStatId.Stable, 1f);
+            _worldStats.ChangePercent(WorldStatId.Stable, 0.9f);
             _heroStats.ChangePercent(HeroStatId.Hp, 1f);
 
             float score = _worldStats.GetStatValue(WorldStatId.Score);
