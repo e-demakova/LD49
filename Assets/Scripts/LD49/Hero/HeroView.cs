@@ -6,7 +6,8 @@ namespace LD49
     public class HeroView
     {
         private readonly Animator _hero;
-        
+        private AudioSource _deadSound;
+
         private readonly int _isWallNear = Animator.StringToHash("IsWallNear");
 
         private readonly int _isMoveHorizontally = Animator.StringToHash("IsMoveHorizontally");
@@ -14,7 +15,7 @@ namespace LD49
 
         private readonly int _verticalInput = Animator.StringToHash("VerticalInput");
         private readonly int _horizontalInput = Animator.StringToHash("HorizontalInput");
-        
+
         private readonly int _dmgTrigger = Animator.StringToHash("ApplyDmg");
         private readonly int _glitchTrigger = Animator.StringToHash("Glitch");
 
@@ -22,7 +23,7 @@ namespace LD49
         {
             return _hero.transform.Tern(direction);
         }
-        
+
         public Vector2Int InputDirection
         {
             set
@@ -47,9 +48,10 @@ namespace LD49
             set => _hero.SetBool(_isWallNear, value);
         }
 
-        public HeroView(Animator hero)
+        public HeroView(Animator hero, AudioSource deadSound)
         {
             _hero = hero;
+            _deadSound = deadSound;
         }
 
         public void ApplyDmg()
@@ -60,6 +62,12 @@ namespace LD49
         public void Glitch()
         {
             _hero.SetTrigger(_glitchTrigger);
+        }
+
+        public void Dead()
+        {
+            _hero.GetComponent<SpriteRenderer>().color = Color.red;
+            _deadSound.Play();
         }
     }
 }

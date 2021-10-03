@@ -1,17 +1,16 @@
 using Deblue.ColliderFinders;
 using DSlacker.ColliderFinders;
-using LD49.Enviroment;
-using LD49.Hero;
 using LD49.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace LD49
+namespace LD49.Hero
 {
     [RequireComponent(typeof(HeroController))]
     public class HeroInstaller : MonoBehaviour
     {
         [SerializeField] private Animator _heroAnimator;
+        [SerializeField] private AudioSource _deadSound;
         [SerializeField] private HeroConfigSO _heroConfig;
         
         private HeroBindings? _heroBindings;
@@ -34,7 +33,7 @@ namespace LD49
             var collider = GetComponent<Collider2D>();
             var bindings = new HeroBindings()
             {
-                View = new HeroView(_heroAnimator),
+                View = new HeroView(_heroAnimator, _deadSound),
                 Model = new HeroModel(_heroConfig),
                 FloorChecker = CreateFloorChecker(collider),
                 WallsChecker = CreateWallsChecker(collider),

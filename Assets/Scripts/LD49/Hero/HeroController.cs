@@ -278,7 +278,7 @@ namespace LD49.Hero
 
         private IEnumerator Dying()
         {
-            _view.Glitch();
+            _view.Dead();
             GetComponent<SpriteRenderer>().color = Color.red;
             yield return Teleporting(transform.position);
             _sceneChanger.LoadScene();
