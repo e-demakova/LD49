@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3a070408aa941ab83ae10be1708848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 0.01
+  _intensity: 0.005
   _shader: {fileID: 4800000, guid: ba40dc630e1d9417cb9ea22586ece1e1, type: 3}
 --- !u!114 &2488272337114781736
 MonoBehaviour:

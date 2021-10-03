@@ -11,7 +11,7 @@ namespace LD49.Stats
         private readonly LimitedStatsStorage<WorldStatId> _worldStats;
 
         public float MaxHp { get; private set; }
-        private float StableDelta { get; set; } = 0.4f;
+        private float StableDelta { get; set; } = 0.2f;
         public float Stable => _worldStats.GetStatValue(WorldStatId.Stable);
 
         private int _maxHpLeafs;

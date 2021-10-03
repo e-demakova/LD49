@@ -330,6 +330,10 @@ PrefabInstance:
       value: -0.010382354
       objectReference: {fileID: 0}
     - target: {fileID: 4152991120914957175, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: _unstable
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957175, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: _teleportPoints.Array.data[0]
       value: 
       objectReference: {fileID: 513065638}
