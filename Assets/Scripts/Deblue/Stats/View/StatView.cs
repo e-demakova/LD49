@@ -1,5 +1,6 @@
 ﻿using System;
 using Deblue.ObservingSystem;
+using TMPro;
 using UnityEngine;
 
 namespace Deblue.Stats.View
@@ -32,4 +33,5 @@ namespace Deblue.Stats.View
             Stat.PropertyChanged.Unsubscribe(UpdateView);
         }
     }
+
 }

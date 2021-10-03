@@ -1,7 +1,6 @@
 using System;
 using Deblue.SceneManagement;
 using Deblue.Stats;
-using LD49.Hero;
 using UnityEngine;
 
 namespace LD49.Stats
@@ -70,8 +69,9 @@ namespace LD49.Stats
             switch (context.NewScene.Type)
             {
                 case SceneType.Level:
-                    _worldStats.ChangeAmount(WorldStatId.Score, 10);
                     _worldStats.ChangeAmount(WorldStatId.Stable, -StableDelta);
+                    _worldStats.ChangeAmount(WorldStatId.Score, 10);
+                    UpdateScore();
                     break;
 
                 case SceneType.Shop:
@@ -87,16 +87,21 @@ namespace LD49.Stats
 
         private void RefreshStats()
         {
-            _worldStats.ChangePercent(WorldStatId.Stable, 0.9f);
-            _heroStats.ChangePercent(HeroStatId.Hp, 1f);
+            _worldStats.SetPercent(WorldStatId.Stable, 0.9f);
+            _heroStats.SetPercent(HeroStatId.Hp, 1f);
 
+            UpdateScore();
+
+            _worldStats.SetAmount(WorldStatId.Score, 0f);
+        }
+
+        private void UpdateScore()
+        {
             float score = _worldStats.GetStatValue(WorldStatId.Score);
             float record = _worldStats.GetStatValue(WorldStatId.Record);
 
             if (score > record)
                 _worldStats.SetAmount(WorldStatId.Record, score);
-
-            _worldStats.SetAmount(WorldStatId.Score, 0f);
         }
 
         public void ChangeStat(WorldStatId id, float newValue)

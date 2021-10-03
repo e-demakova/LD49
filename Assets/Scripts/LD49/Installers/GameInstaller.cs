@@ -1,6 +1,5 @@
 using Deblue.Data;
 using Deblue.Input;
-using Deblue.InteractiveObjects;
 using Deblue.SceneManagement;
 using Deblue.Stats;
 using LD49.Stats;
@@ -37,9 +36,9 @@ namespace LD49.Installers
             heroStats.AddStat(HeroStatId.Money);
 
             var worldStats = new LimitedStatsStorage<WorldStatId>();
-            worldStats.AddStat(WorldStatId.Stable, 1f, 0f, 0.9f);
-            worldStats.AddStat(WorldStatId.Score, 1f, 0f, 1f);
-            worldStats.AddStat(WorldStatId.Record, 1f, 0f, 1f);
+            worldStats.AddStat(WorldStatId.Stable, 9f, 0f, 1f);
+            worldStats.AddStat(WorldStatId.Score, 0f, 0f);
+            worldStats.AddStat(WorldStatId.Record, 0f, 0f);
 
             Container.BindInterfacesAndSelfTo<LimitedStatsStorage<HeroStatId>>().FromInstance(heroStats).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LimitedStatsStorage<WorldStatId>>().FromInstance(worldStats).AsSingle().NonLazy();
