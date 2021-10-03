@@ -1,12 +1,15 @@
+using Deblue;
 using Deblue.Extensions;
 using UnityEngine;
 
-namespace LD49
+namespace LD49.Hero
 {
     public class HeroView
     {
         private readonly Animator _hero;
-        private AudioSource _deadSound;
+        private readonly AudioSource _deadSound;
+        private readonly AudioSource _jumpSound;
+        private readonly AudioSource _dmgSound;
 
         private readonly int _isWallNear = Animator.StringToHash("IsWallNear");
 
@@ -16,7 +19,6 @@ namespace LD49
         private readonly int _verticalInput = Animator.StringToHash("VerticalInput");
         private readonly int _horizontalInput = Animator.StringToHash("HorizontalInput");
 
-        private readonly int _dmgTrigger = Animator.StringToHash("ApplyDmg");
         private readonly int _glitchTrigger = Animator.StringToHash("Glitch");
 
         public Quaternion Tern(float direction)
@@ -48,15 +50,18 @@ namespace LD49
             set => _hero.SetBool(_isWallNear, value);
         }
 
-        public HeroView(Animator hero, AudioSource deadSound)
+        public HeroView(Animator hero, AudioSource deadSound, AudioSource jumpSound, AudioSource dmgSound)
         {
             _hero = hero;
             _deadSound = deadSound;
+            _jumpSound = jumpSound;
+            _dmgSound = dmgSound;
         }
 
         public void ApplyDmg()
         {
-            _hero.SetTrigger(_dmgTrigger);
+            _hero.GetComponent<SpriteRenderer>().color = Color.red;
+            _dmgSound.Play();
         }
 
         public void Glitch()
@@ -66,8 +71,14 @@ namespace LD49
 
         public void Dead()
         {
+            MainCamera.SetDieEffect();
             _hero.GetComponent<SpriteRenderer>().color = Color.red;
             _deadSound.Play();
+        }
+
+        public void Jump()
+        {
+            _jumpSound.Play();
         }
     }
 }

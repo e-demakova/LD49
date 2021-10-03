@@ -121,6 +121,8 @@ namespace LD49.Hero
 
             _invincibleCoroutine?.Do(StopCoroutine);
             _invincibleCoroutine = StartCoroutine(Invincible());
+
+            StartCoroutine(GettingDmg());
         }
 
         public void Teleport(Vector2 position)
@@ -198,6 +200,8 @@ namespace LD49.Hero
         {
             _model.JumpsMade++;
             SetVerticalVelocity(_model.JumpForce);
+            
+            _view.Jump();
         }
 
         private void JumpFromWall()
@@ -206,6 +210,8 @@ namespace LD49.Hero
             _pushingAwayFromWallCoroutine?.Do(StopCoroutine);
             _pushingAwayFromWallCoroutine = StartCoroutine(PushingAwayFromWall());
             SetVerticalVelocity(_model.JumpForce);
+            
+            _view.Jump();
         }
 
         private void SetVerticalVelocity(float force)
@@ -279,9 +285,14 @@ namespace LD49.Hero
         private IEnumerator Dying()
         {
             _view.Dead();
-            GetComponent<SpriteRenderer>().color = Color.red;
-            yield return Teleporting(transform.position);
+            yield return GettingDmg();
             _sceneChanger.LoadScene();
+        }
+
+        private IEnumerator GettingDmg()
+        {
+            yield return Teleporting(transform.position);
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 }

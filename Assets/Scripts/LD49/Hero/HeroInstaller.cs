@@ -11,6 +11,8 @@ namespace LD49.Hero
     {
         [SerializeField] private Animator _heroAnimator;
         [SerializeField] private AudioSource _deadSound;
+        [SerializeField] private AudioSource _dmgSound;
+        [SerializeField] private AudioSource _jumpSound;
         [SerializeField] private HeroConfigSO _heroConfig;
         
         private HeroBindings? _heroBindings;
@@ -33,7 +35,7 @@ namespace LD49.Hero
             var collider = GetComponent<Collider2D>();
             var bindings = new HeroBindings()
             {
-                View = new HeroView(_heroAnimator, _deadSound),
+                View = new HeroView(_heroAnimator, _deadSound, _jumpSound, _dmgSound),
                 Model = new HeroModel(_heroConfig),
                 FloorChecker = CreateFloorChecker(collider),
                 WallsChecker = CreateWallsChecker(collider),

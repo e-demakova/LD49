@@ -13,6 +13,8 @@ namespace LD49.Stats
         [SerializeField] private StatLeaf[] _leafs;
         [SerializeField] private TextMeshProUGUI _nextValue;
         [SerializeField] private TextMeshProUGUI _cost;
+        [SerializeField] private AudioSource _buySound;
+        [SerializeField] private AudioSource _denySound;
 
         private int _liefsActivated;
         private IStatsStorage<HeroStatId> _storage;
@@ -40,7 +42,13 @@ namespace LD49.Stats
         public override void Interact()
         {
             float money = _storage.GetStatValue(HeroStatId.Money);
-            if (Math.Round(money) < AvailableLeaf.Cost)
+
+
+            bool canBuy = Math.Round(money) >= AvailableLeaf.Cost;
+            var sound = canBuy ? _buySound : _denySound;
+            sound.Play();
+                
+            if (!canBuy)
                 return;
 
             _storage.ChangeAmount(HeroStatId.Money, -AvailableLeaf.Cost);

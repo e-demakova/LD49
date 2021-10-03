@@ -53,14 +53,6 @@ namespace Deblue.Input
 
             InputDirection = new Vector2Int(x, y);
             _axisHandlers.Raise(new InputDirection(InputDirection));
-
-            if (MainCamera.Camera == null)
-                return;
-
-            var mousePosition = UnityEngine.Input.mousePosition;
-            mousePosition.z = 10;
-            mousePosition = MainCamera.Camera.ScreenToWorldPoint(mousePosition);
-            _mouseHandlers.Raise(new MousePosition(mousePosition));
         }
 
         public void Dispose()

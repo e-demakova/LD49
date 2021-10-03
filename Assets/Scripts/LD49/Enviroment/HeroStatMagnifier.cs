@@ -26,11 +26,10 @@ namespace LD49.Enviroment
 
         private void IncreaseStat()
         {
-            if (_stats.GetStatValue(_id) < _stats.GetUpperLimit(_id))
-            {
                 _stats.ChangeAmount(_id, 1);
-                Destroy(gameObject);
-            }
+                GetComponent<AudioSource>().Play();
+                GetComponent<Collider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
