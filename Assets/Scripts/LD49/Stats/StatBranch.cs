@@ -30,8 +30,8 @@ namespace LD49.Stats
             _worldStats = worldStats;
             _liefsActivated = worldStats.GetActivatedLeafs(_id);
         }
-
-        protected override void MyAwake()
+        
+        public void Start()
         {
             for (int i = 0; i < _liefsActivated; i++)
             {

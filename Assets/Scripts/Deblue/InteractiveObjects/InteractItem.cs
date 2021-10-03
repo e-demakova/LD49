@@ -16,14 +16,6 @@ namespace Deblue.InteractiveObjects
         
         public abstract bool CanHighlight { get; }
 
-        protected void Awake()
-        {
-            MyAwake();
-        }
-
-        protected virtual void MyAwake()
-        {
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
