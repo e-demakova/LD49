@@ -38,6 +38,8 @@ namespace LD49.Installers
 
             var worldStats = new LimitedStatsStorage<WorldStatId>();
             worldStats.AddStat(WorldStatId.Stable, 1f, 0f, 1f);
+            worldStats.AddStat(WorldStatId.Score, 1f, 0f, 1f);
+            worldStats.AddStat(WorldStatId.Record, 1f, 0f, 1f);
 
             Container.BindInterfacesAndSelfTo<LimitedStatsStorage<HeroStatId>>().FromInstance(heroStats).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LimitedStatsStorage<WorldStatId>>().FromInstance(worldStats).AsSingle().NonLazy();

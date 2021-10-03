@@ -5,5 +5,7 @@ namespace LD49.Stats
         Stable,
         StableDelta,
         MaxHp,
+        Score,
+        Record,
     }
 }

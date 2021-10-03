@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Deblue.SceneManagement;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace LD49

@@ -9,7 +9,7 @@ namespace LD49.Enviroment
     [RequireComponent(typeof(Collider2D))]
     public abstract class Trap : MonoBehaviour
     {
-        [SerializeField, Range(0f, 1f)] private float _unstable;
+        [SerializeField, Range(-1f, 1f)] private float _unstable;
         [SerializeField] private SpriteRenderer _glitchSprite;
         
         private WorldStats _stats;
