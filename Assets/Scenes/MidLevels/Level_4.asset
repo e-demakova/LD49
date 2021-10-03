@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da6f74095da3a24d91e972b3f41e10e, type: 3}
-  m_Name: HeroConfig
+  m_Script: {fileID: 11500000, guid: 3d30aba69223aed43820c441b51e855d, type: 3}
+  m_Name: Level_4
   m_EditorClassIdentifier: 
-  JumpForce: 1.2
-  MoveSpeed: 0.5
-  JumpFromWallDuration: 0.07
-  MaxFallSpeed: 3
+  Name: Level_4
+  Type: 2

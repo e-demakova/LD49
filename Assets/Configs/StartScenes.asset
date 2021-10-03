@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44b76537b080f846a09a9e037e6ad78, type: 3}
   m_Name: StartScenes
   m_EditorClassIdentifier: 
-  LoadSettedScenes: 0
+  LoadSettedScenes: 1
   PersistentGameStartScenes:
   - {fileID: 11400000, guid: b6714fc267abc5b48ac5db9f0ea6203d, type: 2}
   FirstScene: {fileID: 11400000, guid: 01fc3292b4fea974ba65b86e9341534f, type: 2}

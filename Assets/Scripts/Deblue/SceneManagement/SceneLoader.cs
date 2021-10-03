@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 namespace Deblue.SceneManagement
 {
+    public interface ISceneLoader
+    {
+       void LoadNextScene(SceneSO sceneToLoad, bool showLoadingScreen = false);
+    }
+    
     public readonly struct SceneLoaded
     {
         public readonly SceneSO NewScene;
@@ -22,7 +27,7 @@ namespace Deblue.SceneManagement
     {
     }
 
-    public class SceneLoader
+    public class SceneLoader : ISceneLoader
     {
         public SceneSO CurrentScene;
         public SceneSO PreviousScene;

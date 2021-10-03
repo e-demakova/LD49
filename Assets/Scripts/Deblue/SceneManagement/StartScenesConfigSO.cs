@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Deblue.SceneManagement
@@ -8,5 +9,8 @@ namespace Deblue.SceneManagement
         public bool LoadSettedScenes;
         public SceneSO[] PersistentGameStartScenes;
         public SceneSO FirstScene;
+        public int FirstLevelsCount;
+        public SceneSO[] FirstLevels;
+        public SceneSO[] MidLevels;
     }
 }
