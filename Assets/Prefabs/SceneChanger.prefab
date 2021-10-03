@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 7
   m_Name: SceneChanger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -70,4 +70,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8200fe441b2c2a4192996485bd59708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 11400000, guid: 256b33f9c13dab14bbac83b81700ec6d, type: 2}

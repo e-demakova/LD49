@@ -16,3 +16,11 @@ MonoBehaviour:
   PersistentGameStartScenes:
   - {fileID: 11400000, guid: b6714fc267abc5b48ac5db9f0ea6203d, type: 2}
   FirstScene: {fileID: 11400000, guid: 01fc3292b4fea974ba65b86e9341534f, type: 2}
+  FirstLevelsCount: 3
+  FirstLevels:
+  - {fileID: 11400000, guid: 4aebb75d7a210b2409352c74245e4edb, type: 2}
+  - {fileID: 11400000, guid: 543e209a1ed03d34e80c9c80f768a07d, type: 2}
+  - {fileID: 11400000, guid: 0dc1f355b688ca945b0692f8024371cc, type: 2}
+  MidLevels:
+  - {fileID: 11400000, guid: 256b33f9c13dab14bbac83b81700ec6d, type: 2}
+  - {fileID: 11400000, guid: ea1f60a6c4170084eab87a774d14718c, type: 2}

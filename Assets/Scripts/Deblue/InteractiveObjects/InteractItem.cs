@@ -13,9 +13,7 @@ namespace Deblue.InteractiveObjects
             public Sprite Standard;
             public Sprite Highlight;
         }
-
-        [SerializeField] protected string _id;
-
+        
         public abstract bool CanHighlight { get; }
 
         protected void Awake()

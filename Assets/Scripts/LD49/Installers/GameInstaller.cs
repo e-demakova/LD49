@@ -25,6 +25,7 @@ namespace LD49.Installers
 
             Container.BindInterfacesAndSelfTo<LoadService>().FromInstance(new LoadService()).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ScenesPool>().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<StartScenesConfigSO>().FromInstance(_scenes).AsSingle().NonLazy();
         }

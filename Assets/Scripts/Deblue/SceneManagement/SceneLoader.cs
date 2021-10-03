@@ -1,16 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using Deblue.ObservingSystem;
+﻿using Deblue.ObservingSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Deblue.SceneManagement
 {
-    public interface ISceneLoader
-    {
-       void LoadNextScene(SceneSO sceneToLoad, bool showLoadingScreen = false);
-    }
-    
     public readonly struct SceneLoaded
     {
         public readonly SceneSO NewScene;
@@ -27,7 +20,7 @@ namespace Deblue.SceneManagement
     {
     }
 
-    public class SceneLoader : ISceneLoader
+    public class SceneLoader
     {
         public SceneSO CurrentScene;
         public SceneSO PreviousScene;

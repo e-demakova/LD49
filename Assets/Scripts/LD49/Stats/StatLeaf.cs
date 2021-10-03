@@ -1,3 +1,4 @@
+using System;
 using Deblue.InteractiveObjects;
 using UnityEngine;
 using Zenject;
@@ -8,7 +9,9 @@ namespace LD49.Stats
     public class StatLeaf : MonoBehaviour
     {
         public int Cost => _cost;
-        
+
+        public string NextValue => Math.Round(_id == WorldStatId.StableDelta ? _newValue * 100 : _newValue).ToString();
+
         [SerializeField] private WorldStatId _id;
         [SerializeField] private float _newValue;
         [SerializeField] private int _cost;

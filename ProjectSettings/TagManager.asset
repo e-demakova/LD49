@@ -50,3 +50,6 @@ TagManager:
   - name: Tilemap
     uniqueID: 3332672771
     locked: 0
+  - name: UI
+    uniqueID: 3043529573
+    locked: 0
