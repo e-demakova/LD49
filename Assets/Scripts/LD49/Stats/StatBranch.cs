@@ -19,7 +19,8 @@ namespace LD49.Stats
         private int _liefsActivated;
         private IStatsStorage<HeroStatId> _storage;
         private WorldStats _worldStats;
-
+        
+        private bool AllLeafsBought => _liefsActivated >= _leafs.Length;
         private StatLeaf AvailableLeaf => _leafs[_liefsActivated];
 
         [Inject]
@@ -36,24 +37,28 @@ namespace LD49.Stats
             {
                 _leafs[i].SetActiveView();
             }
+
             UpdateText();
         }
 
         public override void Interact()
         {
+            if (AllLeafsBought)
+                return;
+            
             float money = _storage.GetStatValue(HeroStatId.Money);
 
-
+            
             bool canBuy = Math.Round(money) >= AvailableLeaf.Cost;
             var sound = canBuy ? _buySound : _denySound;
             sound.Play();
-                
-            if (!canBuy)
+
+            if(!canBuy)
                 return;
 
             _storage.ChangeAmount(HeroStatId.Money, -AvailableLeaf.Cost);
             AvailableLeaf.Activate();
-            
+
             StopHighlight();
             _liefsActivated++;
             _worldStats.SetActivatedLeafs(_id, _liefsActivated);
@@ -64,8 +69,16 @@ namespace LD49.Stats
 
         private void UpdateText()
         {
-            _cost.text = AvailableLeaf.Cost.ToString();
-            _nextValue.text = AvailableLeaf.NextValue;
+            if (AllLeafsBought)
+            {
+                _cost.enabled = false;
+                _nextValue.enabled = false;
+            }
+            else
+            {
+                _cost.text = AvailableLeaf.Cost.ToString();
+                _nextValue.text = AvailableLeaf.NextValue;
+            }
         }
 
         public override bool CanHighlight => _liefsActivated < _leafs.Length;

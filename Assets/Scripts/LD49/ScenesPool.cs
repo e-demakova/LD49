@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Deblue.SceneManagement;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace LD49
@@ -37,12 +38,14 @@ namespace LD49
 
         private void ReloadScenes(SceneLoaded context)
         {
-            if (context.NewScene.Type == SceneType.Shop) 
+            if (context.NewScene.Type == SceneType.Shop)
                 ReloadScenes();
         }
 
         private void ReloadScenes()
         {
+            _levelNumber = 0;
+
             _midLevels.Clear();
             _firstLevels.Clear();
 
@@ -60,7 +63,7 @@ namespace LD49
 
         private SceneSO GetRandomSceneFromList(List<SceneSO> list)
         {
-            var scene = list[Random.Range(0, _midLevels.Count)];
+            var scene = list[Random.Range(0, list.Count)];
             list.Remove(scene);
             return scene;
         }
