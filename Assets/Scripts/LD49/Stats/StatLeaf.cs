@@ -46,6 +46,11 @@ namespace LD49.Stats
         public void Activate()
         {
             _worldStats.ChangeStat(_id, _newValue);
+            SetActiveView();
+        }
+
+        public void SetActiveView()
+        {
             _renderer.sprite = _activateSprite;
         }
     }

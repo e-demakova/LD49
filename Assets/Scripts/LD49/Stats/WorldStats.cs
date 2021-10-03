@@ -1,7 +1,6 @@
 using System;
 using Deblue.SceneManagement;
 using Deblue.Stats;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace LD49.Stats
@@ -10,10 +9,13 @@ namespace LD49.Stats
     {
         private readonly LimitedStatsStorage<HeroStatId> _heroStats;
         private readonly LimitedStatsStorage<WorldStatId> _worldStats;
-        
+
         public float MaxHp { get; private set; }
         private float StableDelta { get; set; } = 0.3f;
         public float Stable => _worldStats.GetStatValue(WorldStatId.Stable);
+
+        private int _maxHpLeafs;
+        private int _stableDeltaLeafs;
 
         public WorldStats(LimitedStatsStorage<HeroStatId> heroStats, LimitedStatsStorage<WorldStatId> worldStats, SceneLoader sceneLoader)
         {
@@ -21,6 +23,45 @@ namespace LD49.Stats
             _worldStats = worldStats;
 
             sceneLoader.SceneLoaded.Subscribe(ChangeStable);
+        }
+
+        public int GetActivatedLeafs(WorldStatId id)
+        {
+            var value = 0;
+            switch (id)
+            {
+                case WorldStatId.StableDelta:
+                    value = _stableDeltaLeafs;
+                    break;
+
+                case WorldStatId.MaxHp:
+                    value = _maxHpLeafs;
+                    break;
+
+                default:
+                    Debug.LogWarning($"Stat id {id} didn't define.");
+                    break;
+            }
+
+            return value;
+        }
+
+        public void SetActivatedLeafs(WorldStatId id, int value)
+        {
+            switch (id)
+            {
+                case WorldStatId.StableDelta:
+                    _stableDeltaLeafs = value;
+                    break;
+
+                case WorldStatId.MaxHp:
+                    _maxHpLeafs = value;
+                    break;
+
+                default:
+                    Debug.LogWarning($"Stat id {id} didn't define.");
+                    break;
+            }
         }
 
         private void ChangeStable(SceneLoaded context)

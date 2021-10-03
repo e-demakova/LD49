@@ -3,26 +3,37 @@ using Deblue.InteractiveObjects;
 using Deblue.Stats;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace LD49.Stats
 {
     public class StatBranch : InteractionItem
     {
+        [SerializeField] private WorldStatId _id;
         [SerializeField] private StatLeaf[] _leafs;
         [SerializeField] private TextMeshProUGUI _nextValue;
         [SerializeField] private TextMeshProUGUI _cost;
 
         private int _liefsActivated;
         private IStatsStorage<HeroStatId> _storage;
+        private WorldStats _worldStats;
 
         private StatLeaf AvailableLeaf => _leafs[_liefsActivated];
 
         [Inject]
-        public void Construct(IStatsStorage<HeroStatId> storage)
+        public void Construct(IStatsStorage<HeroStatId> storage, WorldStats worldStats)
         {
             _storage = storage;
+            _worldStats = worldStats;
+            _liefsActivated = worldStats.GetActivatedLeafs(_id);
+        }
+
+        protected override void MyAwake()
+        {
+            for (int i = 0; i < _liefsActivated; i++)
+            {
+                _leafs[i].SetActiveView();
+            }
             UpdateText();
         }
 
@@ -37,6 +48,7 @@ namespace LD49.Stats
             
             StopHighlight();
             _liefsActivated++;
+            _worldStats.SetActivatedLeafs(_id, _liefsActivated);
             Highlight();
 
             UpdateText();
