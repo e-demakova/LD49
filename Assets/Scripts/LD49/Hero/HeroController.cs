@@ -62,6 +62,8 @@ namespace LD49.Hero
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+
+            Teleport(_rigidbody.position);
         }
 
         private void OnDisable()
@@ -123,9 +125,32 @@ namespace LD49.Hero
 
         public void Teleport(Vector2 position)
         {
-            _view.Teleport();
-            transform.position = position;
+            StartCoroutine(Teleporting(position));
         }
+
+        private IEnumerator Teleporting(Vector2 position)
+        {
+            _pushingAwayFromWallCoroutine?.Do(StopCoroutine);
+            _model.IsInvincible = true;
+            _model.IsMoveLock = true;
+
+            float gravityScale = _rigidbody.gravityScale;
+            _rigidbody.gravityScale = 0f;
+            _rigidbody.velocity = Vector2.zero;
+            
+            _view.Glitch();
+            yield return new WaitForSecondsRealtime(0.5f);
+            
+            transform.position = position;
+            
+            _view.Glitch();
+            yield return new WaitForSecondsRealtime(0.5f);
+
+            _rigidbody.gravityScale = gravityScale;
+            _model.IsInvincible = false;
+            _model.IsMoveLock = false;
+        }
+        
 
         private void CheckGround()
         {
@@ -160,6 +185,9 @@ namespace LD49.Hero
 
         private void Jump()
         {
+            if(_model.IsMoveLock)
+                return;
+                
             if (_model.IsCanJumpFromWall)
                 JumpFromWall();
             else if (_model.IsCanJumpFromGround)
@@ -243,7 +271,16 @@ namespace LD49.Hero
         private void Die(PropertyReachedLowerLimit context)
         {
             StopAllCoroutines();
+            
             _model.IsInvincible = true;
+            StartCoroutine(Dying());
+        }
+
+        private IEnumerator Dying()
+        {
+            _view.Glitch();
+            GetComponent<SpriteRenderer>().color = Color.red;
+            yield return Teleporting(transform.position);
             _sceneChanger.LoadScene();
         }
     }

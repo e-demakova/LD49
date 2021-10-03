@@ -57,7 +57,7 @@ namespace LD49
             _hero.SetTrigger(_dmgTrigger);
         }
 
-        public void Teleport()
+        public void Glitch()
         {
             _hero.SetTrigger(_glitchTrigger);
         }
