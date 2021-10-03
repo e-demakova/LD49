@@ -44,7 +44,7 @@ namespace LD49.Hero
         
         private IGroundChecker CreateFloorChecker(Collider2D collider)
         {
-            return new RayGroundChecker(collider.transform, Vector2.down, collider.bounds.extents.y + 0.02f);
+            return new RayGroundChecker(collider.transform, Vector2.down, collider.bounds.extents.y + 0.04f);
         }
 
         private IGroundChecker CreateWallsChecker(Collider2D collider)

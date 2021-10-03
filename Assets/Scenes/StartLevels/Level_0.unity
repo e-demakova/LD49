@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.102
+      value: -0.065
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
@@ -528,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4152991120914957168, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.415
+      value: -0.614
       objectReference: {fileID: 0}
     - target: {fileID: 4152991120914957168, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -566,6 +566,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportTrap (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.18017554
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.116959095
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011764497
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02486062
+      objectReference: {fileID: 0}
     - target: {fileID: 4152991120914957175, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: _teleportPoints.Array.data[0]
       value: 
@@ -575,8 +591,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.246
+      value: -0.195
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
@@ -1110,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.102
+      value: -0.065
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
@@ -16367,6 +16387,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.12679413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11742535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.023246989
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152991120914957174, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09199907
+      objectReference: {fileID: 0}
     - target: {fileID: 4152991120914957175, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: _teleportPoints.Array.data[0]
       value: 
@@ -16376,8 +16412,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017
+      value: -0.024
       objectReference: {fileID: 0}
     - target: {fileID: 6397798047052926635, guid: 245ab1d3fb9f12545b7d9fc512714d0d, type: 3}
       propertyPath: m_LocalPosition.y
