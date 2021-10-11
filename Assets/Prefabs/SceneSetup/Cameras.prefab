@@ -12,10 +12,13 @@ GameObject:
   - component: {fileID: 793976679121355092}
   - component: {fileID: 793976679121355093}
   - component: {fileID: 793976679121355178}
-  - component: {fileID: 8441221135910984398}
-  - component: {fileID: 7136548235449981588}
-  - component: {fileID: 2488272337114781736}
-  - component: {fileID: 4772504430498452908}
+  - component: {fileID: 7691060885365649540}
+  - component: {fileID: 5026831538690709683}
+  - component: {fileID: 1249304823123447162}
+  - component: {fileID: 7174170763153967445}
+  - component: {fileID: 6902242915642854484}
+  - component: {fileID: 2007884331930556389}
+  - component: {fileID: 8166970062471358833}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -127,38 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8421b6c6b7533a489c689eb6b6b40f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8441221135910984398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793976679121355095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870b9a8f0f82f4f56800cc427bcd1025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scanLineJitter: 0.02
-  _verticalJump: 0
-  _horizontalShake: 0
-  _colorDrift: 0
-  _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
---- !u!114 &7136548235449981588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793976679121355095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3a070408aa941ab83ae10be1708848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _intensity: 0.005
-  _shader: {fileID: 4800000, guid: ba40dc630e1d9417cb9ea22586ece1e1, type: 3}
---- !u!114 &2488272337114781736
+--- !u!114 &7691060885365649540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +147,7 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!114 &4772504430498452908
+--- !u!114 &5026831538690709683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,6 +207,106 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1249304823123447162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793976679121355095}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be858a1afc5687b44a08cf2167a33a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shader: {fileID: 4800000, guid: 56311c465c15d424bacdf753ed5bfefe, type: 3}
+--- !u!114 &7174170763153967445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793976679121355095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c433e6abc1f8c8041bfee63008652523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    ColorDrift: 0
+    Distortion: 0
+    DriftSpeed: 0
+    DriftDirection: 0
+    R: 0
+    G: 0
+    B: 0
+  _shader: {fileID: 4800000, guid: e5003c57701ccaa4d814bc8c603b08e3, type: 3}
+--- !u!114 &6902242915642854484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793976679121355095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd470a1c4a4bc54f9fa077ef6aae66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    Intensity: 0
+    SafeArea: 0
+    Shift: 0
+    Size: 0
+    UpdateSpeed: 0
+    ColorDrift: 0
+    R: 0
+    G: 0
+    B: 0
+  _textureSize: {x: 34, y: 120}
+  _shader: {fileID: 4800000, guid: 80b2d54942f87064e81d0ed084baccb5, type: 3}
+--- !u!114 &2007884331930556389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793976679121355095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd470a1c4a4bc54f9fa077ef6aae66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    Intensity: 0
+    SafeArea: 0
+    Shift: 0
+    Size: 0
+    UpdateSpeed: 0
+    ColorDrift: 0
+    R: 0
+    G: 0
+    B: 0
+  _textureSize: {x: 34, y: 0}
+  _shader: {fileID: 4800000, guid: 80b2d54942f87064e81d0ed084baccb5, type: 3}
+--- !u!114 &8166970062471358833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793976679121355095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02e519dc1b605341beb798a12b44134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlurArea: 0.32
+  Blur: 0.57
+  ChromaticAberration: 55
+  AberrationMultiplier: -0.13
+  _vignette: {fileID: 4800000, guid: 9b160bf900c088d49b7c5e705e2ce7fc, type: 3}
+  _separateBlur: {fileID: 4800000, guid: d938a15cb8c5d504d8349a7e7b1a2453, type: 3}
 --- !u!1 &793976679377645999
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6686714893995620515}
+  - component: {fileID: 7942359855543535503}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -521,3 +594,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7942359855543535503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134488546841010896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5720907660bad4a881eced73eeb941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 793976679121355092}
+  _grayscale: {fileID: 1249304823123447162}
+  _color: {fileID: 7174170763153967445}
+  _digitalA: {fileID: 6902242915642854484}
+  _digitalB: {fileID: 2007884331930556389}
+  _goToNormalDuration: 0
+  _grayscaleValues: {fileID: 11400000, guid: 756cec0890cad4e4a92ab5fbeba1ce6f, type: 2}
+  _extraGlitchValues: {fileID: 11400000, guid: 4d49b0f3d30827643a6ab895b54fa99c, type: 2}

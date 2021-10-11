@@ -71,7 +71,6 @@ namespace LD49.Hero
 
         public void Dead()
         {
-            MainCamera.SetDieEffect();
             _hero.GetComponent<SpriteRenderer>().color = Color.red;
             _deadSound.Play();
         }
