@@ -12,20 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44b76537b080f846a09a9e037e6ad78, type: 3}
   m_Name: StartScenes
   m_EditorClassIdentifier: 
-  LoadSettedScenes: 0
+  LoadSettedScenes: 1
   PersistentGameStartScenes:
   - {fileID: 11400000, guid: b6714fc267abc5b48ac5db9f0ea6203d, type: 2}
   FirstScene: {fileID: 11400000, guid: 01fc3292b4fea974ba65b86e9341534f, type: 2}
   FirstLevelsCount: 2
   FirstLevels:
   - {fileID: 11400000, guid: 4aebb75d7a210b2409352c74245e4edb, type: 2}
-  - {fileID: 11400000, guid: 543e209a1ed03d34e80c9c80f768a07d, type: 2}
-  - {fileID: 11400000, guid: 0dc1f355b688ca945b0692f8024371cc, type: 2}
-  MidLevels:
-  - {fileID: 11400000, guid: 256b33f9c13dab14bbac83b81700ec6d, type: 2}
-  - {fileID: 11400000, guid: ea1f60a6c4170084eab87a774d14718c, type: 2}
-  - {fileID: 11400000, guid: d2decb3576860a2408a11125955a9ffa, type: 2}
-  - {fileID: 11400000, guid: 8449c52ce0d3e0d4ba4765bab002336f, type: 2}
-  - {fileID: 11400000, guid: 505ce1ce7f686e443bfd949566dc1442, type: 2}
-  - {fileID: 11400000, guid: ab43d7eff3504d043b01ce28949527f8, type: 2}
-  - {fileID: 11400000, guid: b59c7085aa052774ab136eba1a0189f3, type: 2}
+  MidLevels: []

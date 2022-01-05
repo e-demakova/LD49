@@ -33,7 +33,7 @@ MonoBehaviour:
   DigitalB:
     Intensity: 0.93
     SafeArea: 0
-    Shift: 0.36
+    Shift: 0.67
     Size: 0.8
     UpdateSpeed: 0.13
     ColorDrift: -0.4

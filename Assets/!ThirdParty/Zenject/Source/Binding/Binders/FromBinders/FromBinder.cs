@@ -869,8 +869,8 @@ namespace Zenject
             // Don't know how it's created so can't assume here that it violates AsSingle
             BindInfo.MarkAsCreationBinding = false;
             SubFinalizer = new ScopableBindingFinalizer(
-                BindInfo,
-                (container, type) => new InstanceProvider(type, instance, container, BindInfo.InstantiatedCallback));
+                bindInfo: BindInfo,
+                providerFactory: (container, type) => new InstanceProvider(type, instance, container, BindInfo.InstantiatedCallback));
 
             return new ScopeConcreteIdArgConditionCopyNonLazyBinder(BindInfo);
         }
